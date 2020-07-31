@@ -5,11 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("https://images.pexels.com/photos/2675047/pexels-photo-2675047.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+  background: url("https://images.pexels.com/photos/2675047/pexels-photo-2675047.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
   background-size: cover;
   color: white;
 }
-
+h6 {
+  color: black;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
