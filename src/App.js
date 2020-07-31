@@ -31,14 +31,26 @@ class App extends Component {
     });
   };
   clearList = () => {
-    console.log("clear List");
+    this.setState({ items: [] });
+  };
+
+  handleDelete = (id) => {
+    // console.log(`handle delete ${id}`);
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
+    this.setState({ items: filteredItems });
   };
   handleEdit = (id) => {
-    console.log(`handle edit ${id}`);
+    // console.log(`handle edit ${id}`);
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
+    const selectedItem = this.state.items.find((item) => item.id === id);
+    this.setState({
+      items: filteredItems,
+      item: selectedItem.title,
+      id: id,
+      editItem: true,
+    });
   };
-  handleDelete = (id) => {
-    console.log(`handle delete ${id}`);
-  };
+
   render() {
     console.log(this.state);
     return (
