@@ -1,17 +1,58 @@
 import React, { Component } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-// import uuid from "uuid";
+
 import TodoInput from "./Components/TodoInput";
 import TodoList from "./Components/TodoList";
+import { v4 as uuidv4 } from "uuid";
+uuidv4();
 
 class App extends Component {
+  state = {
+    items: [
+      { id: 1, title: "wake up" },
+      { id: 2, title: "sleep" },
+    ],
+    id: uuidv4(),
+    item: "",
+    editItem: false,
+  };
+
+  handleChange = (e) => {
+    console.log(e, "handle Change");
+  };
+  handleSubmit = (e) => {
+    console.log(e, "handle Submit");
+  };
+  clearList = () => {
+    console.log("clear List");
+  };
+  handleEdit = (id) => {
+    console.log(`handle edit ${id}`);
+  };
+  handleDelete = (id) => {
+    console.log(`handle delete ${id}`);
+  };
   render() {
+    console.log(this.state);
     return (
       <div>
         <div className="container">
           <div className="row">
-            <TodoInput />
-            <TodoList />
+            <div className="col-10 mx-auto col-8 mt-4">
+              <h3 className="text-capitalize text-center">todo input</h3>
+              <TodoInput
+                item={this.state.item}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSubmit}
+                editItem={this.state.editItem}
+              />
+              <TodoList
+                items={this.state.items}
+                clearList={this.clearList}
+                handleDelete={this.handleDelete}
+                handleEdit={this.handleEdit}
+              />
+            </div>
           </div>
         </div>
       </div>
